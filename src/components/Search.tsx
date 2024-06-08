@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAppContext, AppContextType } from "../providers/AppProvider";
 import { useNavigate } from "react-router-dom";
+import { hideMobileKeyboardOnReturn } from "../helpers/hideMobileKeyboardOnReturn";
 
 const Search = () => {
   const [search, setSearch] = useState<string>("");
@@ -17,7 +18,9 @@ const Search = () => {
     form.reset();
     dispatch({ type: "CHANGE_POKEMON", payload: searchValue });
     navigate(`/pokemon/${searchValue}`);
+    hideMobileKeyboardOnReturn(input)
   };
+
 
   return (
     <>

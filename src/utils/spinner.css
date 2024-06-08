@@ -1,0 +1,89 @@
+ /* https://codepen.io/Painatalman/pen/WboNLr */
+
+.pokeball {
+  display: inline-block;
+  word-spacing: 10px;
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: red;
+  border-style: solid;
+  border-width: 2px;
+  position: relative;
+  transform: rotateZ(-45deg);
+}
+.pokeball::before {
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  box-sizing: border-box;
+  border-color: transparent transparent white white;
+  border-width: 13px;
+  border-radius: 100%;
+  border-style: solid;
+  position: absolute;
+  bottom: 0;
+}
+.pokeball::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  background-color: white;
+  top: calc(50% - 12px/ 2);
+  left: calc(50% - 12px/ 2);
+  width: 12px;
+  height: 12px;
+  border-width: 5px;
+  border-style: double;
+  border-color: black;
+  position: absolute;
+  border-radius: 100%;
+}
+.pokeball-loader .pokeball {
+  animation: rotater;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.pokeball-loader .pokeball:nth-child(1) {
+  animation-delay: 300ms;
+}
+.pokeball-loader .pokeball:nth-child(2) {
+  animation-delay: 600ms;
+}
+.pokeball-loader .pokeball:nth-child(3) {
+  animation-delay: 900ms;
+}
+.pokeball-loader .pokeball:nth-child(4) {
+  animation-delay: 1200ms;
+}
+.pokeball-loader .pokeball:nth-child(5) {
+  animation-delay: 1500ms;
+}
+.pokeball-loader .pokeball:nth-child(6) {
+  animation-delay: 1800ms;
+}
+.pokeball-loader .pokeball:nth-child(7) {
+  animation-delay: 2100ms;
+}
+.pokeball-loader .pokeball:nth-child(8) {
+  animation-delay: 2400ms;
+}
+.pokeball-loader .pokeball:nth-child(9) {
+  animation-delay: 2700ms;
+}
+.pokeball-loader .pokeball:nth-child(10) {
+  animation-delay: 3000ms;
+}
+
+@keyframes rotater {
+  0% {
+    transform: rotateZ(-45deg);
+  }
+  100% {
+    transform: rotateZ(315deg);
+  }
+}

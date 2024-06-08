@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import Search from "../Search";
+import logo from "../../../public/logo.png"
 
 const Header = () => {
   return (
     <header>
-      <h1>
-        <Link to="/">Pokemon</Link>
-      </h1>
+      <div className="div-logo">
+        <Link to="/"><img className="logo" src={logo}/></Link>
+      </div>
       <nav>
         <Search />
       </nav>
