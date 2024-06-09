@@ -19,15 +19,23 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("/background.jpg");   /* https://www.vecteezy.com/vector-art/24649105-pattern-pokeball-red-and-white-ball-of-the-popular-cartoon-90s-pixel-art */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  scroll-behavior: smooth;
+}
+
+.app {
+  margin: 0
 }
 
 body {
   margin: 0 auto;
   min-width: 320px;
   min-height: 100vh;
-  max-width: 960px;
-  background-color: #f0f0f0;
   height: fit-content;
+  background-color: rgb(255, 255, 255, 0.95);
 }
 
 h1 {
@@ -44,7 +52,7 @@ h2 {
 header {
   display: flex;
   flex-direction: column;
-  padding: 0 2em;
+  padding: 0 1.5em;
   align-items: center;
 }
 
@@ -63,17 +71,30 @@ header {
 }
 
 main {
-  padding: 1.6em 2em;
+  padding: 1em 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
-nav ul {
+nav {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   gap: 1em;
+  margin-bottom: 1.6em;
+  width: 100%;
+}
+
+.search-input {
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  border-radius: 20px;
+  transition: border-color 0.25s;
+  border: 2px solid gray;
+  width: 100%;
 }
 
 .pokemon-image {
@@ -93,22 +114,20 @@ nav ul {
   margin-right: 6px;
 }
 
+.pokedex-number {
+  font-size: 2.4em;
+  margin-top: 3px;
+  text-shadow: 2px 0px 1px #000;
+  margin-right: -4px;
+}
+
 .type-image {
   width: 20px;
   image-rendering: pixelated;
   margin-bottom: -6px;
 }
 
-.search-input {
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  border-radius: 8px;
-  transition: border-color 0.25s;
-  color: gray;
-  width: 100%;
-}
+
 
 .not-found-gif {
   width: 200px;
@@ -129,4 +148,12 @@ nav ul {
   .search-input {
     width: 100%;
   }
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 1em 2em;
+  text-align: right;
 }

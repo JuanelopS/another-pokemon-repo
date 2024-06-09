@@ -3,10 +3,11 @@ import { AppProvider } from "./providers/AppProvider";
 import Home from "./components/pages/Home"; // later we will use this component
 import Pokemon from "./components/Pokemon";
 import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 import Error from "./components/pages/Error";
 import "./fonts/ProggyCleanNerdFont-Regular.ttf";
-
 import "./App.css";
+
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="*" element={<h1>Not Found</h1>} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </AppProvider>
     </>

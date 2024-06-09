@@ -42,6 +42,11 @@
   position: absolute;
   border-radius: 100%;
 }
+
+.pokeball-loader {
+  margin-top: 80px;
+}
+
 .pokeball-loader .pokeball {
   animation: rotater;
   animation-duration: 0.5s;

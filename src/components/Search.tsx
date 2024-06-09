@@ -18,9 +18,8 @@ const Search = () => {
     form.reset();
     dispatch({ type: "CHANGE_POKEMON", payload: searchValue });
     navigate(`/pokemon/${searchValue}`);
-    hideMobileKeyboardOnReturn(input)
+    hideMobileKeyboardOnReturn(input);
   };
-
 
   return (
     <>

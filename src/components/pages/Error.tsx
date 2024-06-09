@@ -1,4 +1,4 @@
-import not_found from "../../../public/not_found.webp";  // https://giphy.com/stickers/pixel-pixelart-pokemon-ge8V1m6LFNyBg9sIHV
+import not_found from "/not_found.webp";  // https://giphy.com/stickers/pixel-pixelart-pokemon-ge8V1m6LFNyBg9sIHV
 
 const Error = () => {
   return (

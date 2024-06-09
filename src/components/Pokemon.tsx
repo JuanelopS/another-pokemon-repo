@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Spinner from "../utils/Spinner";
 import { capitalizeFLetter } from "../helpers/capitalizeFLetter";
@@ -21,6 +21,12 @@ type PokemonData = {
       name: string;
     };
   }[];
+  game_indices: {
+    game_index: number;
+    version: {
+      name: string;
+    };
+  }[];
 };
 
 const Pokemon = () => {
@@ -31,7 +37,7 @@ const Pokemon = () => {
   const [isShiny, setIsShiny] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const handleGetPokemon = async () => {
+  const handleGetPokemon = useCallback(async () => {
     try {
       setLoading(true);
       const data = await fetch(
@@ -39,14 +45,16 @@ const Pokemon = () => {
       );
       const json = await data.json();
       setPokemon(json as PokemonData);
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
     } catch (error) {
       console.error(error);
       navigate("/error");
       setPokemon(undefined);
       setLoading(false);
     }
-  };
+  }, [name, navigate]);
 
   const handleImageShiny = () => {
     setIsShiny(!isShiny);
@@ -64,13 +72,16 @@ const Pokemon = () => {
       ) : (
         <section>
           <div className="title-and-type">
+            <h2 className="pokedex-number">
+              {pokemon?.game_indices[0].game_index}.
+            </h2>
             <h2 className="title">
               {pokemon?.species.name && capitalizeFLetter(pokemon.species.name)}
             </h2>
             {pokemon?.types.map((type) => (
               <span key={type.slot} className={`type ${type.type.name}`}>
                 <img
-                  src={`../../public/icons/${type.type.name}.svg`}
+                  src={`/icons/${type.type.name}.svg`}
                   alt={type.type.name}
                   className="type-image"
                   title={type.type.name}
